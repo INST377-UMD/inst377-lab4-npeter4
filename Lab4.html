@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>INST LAB 4</title>
+    </head>
+    <style>
+        .section {
+            background-color: purple;
+            border: 10px black;
+            padding: 20px;
+            margin: 20px;
+        }
+
+    </style>
+    <body>
+        <h1 id="main-heading">INST 377 Lab 4</h1>
+        <div class="section" id="alert-section">
+            <form id="alert-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                <button type="button" onclick="alertMe()">Alert Me</button>
+            </form>
+        </div>
+
+        <div class="section" id="color-section">
+            <button onclick="changeColor()">Change Color</button>
+        </div>
+
+        <div class="section" id="texttester-section">
+            <form id="texttester-form">
+                <label for="text">Text Tester:</label>
+                <input type="text" id="text" required>
+                <button type="button" onclick="validateText()">Validate Text</button>
+            </form>
+        </div>
+
+        <div class="section" id="add-text-section">
+            <button onclick="addText()">Add Text</button>
+        </div>
+        <script type="text/javascript">
+            function alertMe(){
+                const nameInput = document.getElementById('name').value;
+                if (nameInput) {
+                    alert("Hi " + nameInput + "!");
+                }
+            }
+            let isBlue = true;
+            function changeColor() {
+                if (isBlue) {
+                    document.body.style.backgroundColor = 'green';
+                } else {
+                    document.body.style.backgroundColor = 'blue';
+                }
+                isBlue = !isBlue;
+                
+            }
+            function validateText() {
+                const textInput = document.getElementById('text').value;
+                var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                if (validation.test(textInput)) {
+                    alert("Special character");
+                }
+            }
+            function addText() {
+                const mainHeading = document.getElementById('main-heading');
+                mainHeading.innerText += " Add Text";
+            }
+
+        
+        </script>
+    </body>
+</html>
